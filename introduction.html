@@ -5,20 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./introduction.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="top">
-        <nav>
-            <ul>
-                <li> <a href="#"></a> </li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-            </ul>
-        </nav>
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#profile">profile</a></li>
+            <li><a href="#selfpr">selfpr</a></li>
+            <li><a href="#vision">vision</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+    <section id="profile">
+        <h1>profile</h1>
+    </section>
+    <section id="selfpr">
+        <h1>self pr</h1>
+    </section>
+    <section id="vision">
+        <h1>vision</h1>
+    </section>
+    <section id="contact">
+        <h1>contact</h1>
+    </section>
+    <a href="#top" class="top">back</a>
+    <script>
+        $(function () {
+            $("nav ul li a").each(function () {
+                let $headerA = $(this),
+                    href = $headerA.attr('href'),
+                    duration = 800,
+                    currentId,
+                    $goToTop = $(".top");
+                $headerA.click(function (e) {
+                    e.preventDefault();
+                    $(href).stop(true).animate({
+                        left: 0,
+                        top: 0
+                    }, duration);
+                    currentId = href;
+                });
+                $goToTop.click(function () {
+                    if (currentId === "#profile") {
+                        $(href).stop(true).animate({
+                            left: -100 + '%',
+                            top: 0
+                        }, duration);
+                    } else if (currentId === "#selfpr") {
+                        $(href).stop(true).animate({
+                            left: 0,
+                            top: -100 + '%'
+                        }, duration);
+                    } else if (currentId === "#vision") {
+                        $(href).stop(true).animate({
+                            left: 100 + '%',
+                            top: 0
+                        }, duration);
+                    } else if (currentId === "#contact") {
+                        $(href).stop(true).animate({
+                            top: 100 + '%',
+                            left: 0
+                        }, duration);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
