@@ -26,11 +26,26 @@ nav ul li{
     height: 50vh;
     text-align: center;
     line-height: 50vh;
+    position: relative;
 }
 nav ul li a{
     display: block;
     height: 100%;
     font-size: 2rem;
+}
+nav ul li::after{
+    content: "";
+    position: absolute;
+    bottom: 15vh;
+    height: 2px;
+    width: 0px;
+    left:50%;
+    background-color: black;
+    transition: all 0.5s;
+}
+nav ul li:hover::after{
+    width: 20%;
+    transform: translateX(-50%);
 }
 section{
     height: 100vh;
@@ -65,14 +80,13 @@ section h1{
 }
 #contact{
     top: 100vh;
-
     background-color: blue;
 }
 .top{
     background-color: white;
     position: fixed;
-    right: 50px;
-    top: 50px;
+    right: 1%;
+    top: 1vh;
     display: block;
     height: 80px;
     width: 80px;
